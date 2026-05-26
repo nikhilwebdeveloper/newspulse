@@ -229,7 +229,7 @@ function NewsCard({ article }: any) {
         <img
           src={article.thumbnail}
           alt=""
-          onError={(e) => (e.target.style.display = "none")}
+          onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
           style={{
             width: "100px",
             height: "72px",
