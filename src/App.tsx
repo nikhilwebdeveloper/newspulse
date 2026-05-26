@@ -400,7 +400,7 @@ export default function TechPulse() {
     setLoading(true);
     setError("");
 
-    const feeds = FEEDS[category] || FEEDS["All"];
+    const feeds = FEEDS[category as keyof typeof FEEDS] || FEEDS["All"];
     const results = [];
 
     await Promise.all(
