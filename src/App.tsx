@@ -180,7 +180,7 @@ function readTime(desc = "") {
 }
 
 // ── Badge ─────────────────────────────────────────────────────────────────────
-function Badge({ category }) {
+function Badge({ category }: { category: string }) {
   const c = CAT_COLORS[category] || CAT_COLORS["All"];
   return (
     <span
