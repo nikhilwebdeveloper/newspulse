@@ -195,7 +195,7 @@ function Badge({ category }: { category: string }) {
         padding: "2px 9px",
       }}
     >
-      {CAT_EMOJI[category] || "📰"} {category}
+      {CAT_EMOJI[category as keyof typeof CAT_EMOJI] || "📰"} {category}
     </span>
   );
 }
