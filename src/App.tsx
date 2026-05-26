@@ -392,8 +392,8 @@ function Skeleton() {
 export default function TechPulse() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [news, setNews] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>("");
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const fetchNews = useCallback(async (category: string) => {
