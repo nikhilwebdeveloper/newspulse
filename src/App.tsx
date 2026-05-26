@@ -390,11 +390,11 @@ function Skeleton() {
 
 // ── Main App ──────────────────────────────────────────────────────────────────
 export default function TechPulse() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [lastUpdated, setLastUpdated] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const fetchNews = useCallback(async (category: string) => {
     setLoading(true);
@@ -441,7 +441,7 @@ export default function TechPulse() {
     fetchNews("All");
   }, []);
 
-  const handleCategory = (cat) => {
+  const handleCategory = (cat: string) => {
     setActiveCategory(cat);
     fetchNews(cat);
   };
