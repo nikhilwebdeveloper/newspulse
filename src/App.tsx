@@ -655,7 +655,7 @@ export default function TechPulse() {
           >
             {CATEGORIES.map((cat) => {
               const isActive = cat === activeCategory;
-              const c = CAT_COLORS[cat];
+              const c = CAT_COLORS[cat as keyof typeof CAT_COLORS];
               return (
                 <button
                   key={cat}
@@ -667,7 +667,7 @@ export default function TechPulse() {
                     border: `1px solid ${isActive ? c.border : "#e2e8f0"}`,
                   }}
                 >
-                  {CAT_EMOJI[cat]} {cat}
+                  {CAT_EMOJI[cat as keyof typeof CAT_EMOJI]} {cat}
                 </button>
               );
             })}
