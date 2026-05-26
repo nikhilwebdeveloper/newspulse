@@ -201,7 +201,7 @@ function Badge({ category }: { category: string }) {
 }
 
 // ── News Card ─────────────────────────────────────────────────────────────────
-function NewsCard({ article }) {
+function NewsCard({ article }: any) {
   const [hovered, setHovered] = useState(false);
   return (
     <article
