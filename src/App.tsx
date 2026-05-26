@@ -396,7 +396,7 @@ export default function TechPulse() {
   const [error, setError] = useState("");
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  const fetchNews = useCallback(async (category) => {
+  const fetchNews = useCallback(async (category: string) => {
     setLoading(true);
     setError("");
 
