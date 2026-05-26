@@ -163,7 +163,7 @@ function stripHtml(html = "") {
 }
 
 // Friendly time ago
-function timeAgo(dateStr) {
+function timeAgo(dateStr: string) {
   const diff = Date.now() - new Date(dateStr).getTime();
   const m = Math.floor(diff / 60000);
   if (m < 1) return "Just now";
