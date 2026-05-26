@@ -86,7 +86,7 @@ const FEEDS = {
   ],
 };
 
-const RSS2JSON = "https://api.rss2json.com/v1/api.json?rss_url=";
+const RSS2JSON = "https://api.allorigins.win/raw?url=";
 
 // ── Parse rss2json JSON response into article objects ─────────────────────────
 function parseFeed(
@@ -406,13 +406,24 @@ export default function TechPulse() {
     await Promise.all(
       feeds.map(async ({ url, source, category: cat }) => {
         try {
-          const apiUrl = `${RSS2JSON}${encodeURIComponent(url)}&count=8`;
-          const res = await fetch(apiUrl);
-          if (!res.ok) return;
-          const data = await res.json();
-          if (data.status === "ok" && Array.isArray(data.items)) {
-            results.push(...parseFeed(data.items, source, cat));
-          }
+          const apiUrl = `${RSS2JSON}${encodeURIComponent(url)}`;
+
+const res = await fetch(apiUrl);
+if (!res.ok) return;
+
+const text = await res.text();
+
+const parser = new DOMParser();
+const xml = parser.parseFromString(text, "text/xml");
+
+const items = Array.from(xml.querySelectorAll("item")).map((item: any) => ({
+  title: item.querySelector("title")?.textContent || "",
+  link: item.querySelector("link")?.textContent || "",
+  pubDate: item.querySelector("pubDate")?.textContent || "",
+  description: item.querySelector("description")?.textContent || "",
+}));
+
+results.push(...parseFeed(items, source, cat));
         } catch {
           /* skip failed feed silently */
         }
