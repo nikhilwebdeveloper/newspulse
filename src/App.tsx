@@ -89,7 +89,11 @@ const FEEDS = {
 const RSS2JSON = "https://api.rss2json.com/v1/api.json?rss_url=";
 
 // ── Parse rss2json JSON response into article objects ─────────────────────────
-function parseFeed(items = [], source, category) {
+function parseFeed(
+  items: any[] = [],
+  source: string,
+  category: string
+) {
   return items.slice(0, 8).map((item, idx) => {
     const rawDesc = item.description || item.content || "";
 
