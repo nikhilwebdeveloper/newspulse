@@ -401,7 +401,7 @@ export default function TechPulse() {
     setError("");
 
     const feeds = FEEDS[category as keyof typeof FEEDS] || FEEDS["All"];
-    const results = [];
+    const results: any[] = [];
 
     await Promise.all(
       feeds.map(async ({ url, source, category: cat }) => {
