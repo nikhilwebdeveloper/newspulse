@@ -391,7 +391,7 @@ function Skeleton() {
 // ── Main App ──────────────────────────────────────────────────────────────────
 export default function TechPulse() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [lastUpdated, setLastUpdated] = useState(null);
