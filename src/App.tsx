@@ -698,7 +698,7 @@ export default function TechPulse() {
               <h2 style={{ fontSize: "20px", fontWeight: "800" }}>
                 {activeCategory === "All"
                   ? "Latest Stories"
-                  : `${CAT_EMOJI[activeCategory]} ${activeCategory} News`}
+                  : `${CAT_EMOJI[activeCategory as keyof typeof CAT_EMOJI]} ${activeCategory} News`}
               </h2>
               {!loading && news.length > 0 && (
                 <span
