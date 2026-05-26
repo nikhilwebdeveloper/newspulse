@@ -181,7 +181,7 @@ function readTime(desc = "") {
 
 // ── Badge ─────────────────────────────────────────────────────────────────────
 function Badge({ category }: { category: string }) {
-  const c = CAT_COLORS[category] || CAT_COLORS["All"];
+  const c = CAT_COLORS[category as keyof typeof CAT_COLORS] || CAT_COLORS["All"];
   return (
     <span
       style={{
